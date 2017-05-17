@@ -1,4 +1,5 @@
 import { DateService } from './../core/services/date.service';
+import { AuthService } from './../core/services/auth.service';
 import { Subscription } from 'rxjs/Subscription';
 import { getAllProjects } from './../project/reducers/project.selector';
 import { ProjectActions } from './../project/actions/project.actions';
@@ -25,7 +26,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     private toastyConfig: ToastyConfig,
     private store: Store<AppState>,
     private projectActions: ProjectActions,
-    private dateService: DateService
+    private dateService: DateService,
+    private authService: AuthService
   ) {
     this.toastyConfig.theme = 'bootstrap';
     this.route.queryParams.subscribe((params) => this.message = params['message']);
@@ -34,6 +36,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.store.dispatch(this.projectActions.fetchAllProjects());
+    this.authService.validateToken().subscribe();
     this.loadScript();
 
     if (this.message) {

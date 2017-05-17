@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { StripeService } from './../../../core/services/stripe.service';
 
 @Component({
   selector: 'app-stripe-oauth-redirect',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StripeOauthRedirectComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute,
+  	private stripeService: StripeService) { }
 
   ngOnInit() {
-  }
 
+  }
 }
+	

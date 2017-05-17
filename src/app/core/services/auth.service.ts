@@ -100,5 +100,4 @@ export class AuthService {
     const token = headers.Authorization[0];
     localStorage.setItem('accessToken', token);
   }
-
 }

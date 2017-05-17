@@ -83,6 +83,21 @@ export class HttpService extends Http {
       });
   }
 
+
+  post_stripe(url: string, body: any, options?: RequestOptionsArgs): Observable<any> {
+    this.requestInterceptor();
+    return super.post(url, body, this.requestOptions(options))
+      .catch(this.onCatch.bind(this))
+      .do((res: Response) => {
+        this.onSubscribeSuccess(res);
+      }, (error: any) => {
+        this.onSubscribeError(error);
+      })
+      .finally(() => {
+        this.onFinally();
+      });
+  }
+
   /**
    * Performs a request with `put` http method.
    * @param url

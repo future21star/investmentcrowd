@@ -19,6 +19,7 @@ export class SofortRedirectUrlComponent implements OnInit {
     private stripeService: StripeService
   ) {
     Stripe.setPublishableKey('pk_test_M2e5YbVJN53ZL7CWp1KdgNAC');
+    // Stripe.setPublishableKey('pk_test_2EGWoFJPE26IJfFuipiFEV1M');
     this.route.params.subscribe((params) => this.projectId = params['id']);
     this.route.queryParams.subscribe((params) => {
       this.sourceId = params['source'];

@@ -1,8 +1,8 @@
 import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
 import { ToastyService } from 'ng2-toasty';
-import { Response } from '@angular/http';
-import { HttpService } from './http';
+import { Response, Headers } from '@angular/http';
+import { HttpService} from './http';
 import { Injectable } from '@angular/core';
 
 @Injectable()

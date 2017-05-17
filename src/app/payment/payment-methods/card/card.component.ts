@@ -19,7 +19,9 @@ export class CardComponent implements OnInit {
 
   openCheckout() {
     const handler = (<any>window).StripeCheckout.configure({
-      key: 'pk_test_M2e5YbVJN53ZL7CWp1KdgNAC',
+      key: 'pk_test_2EGWoFJPE26IJfFuipiFEV1M',      
+      // key: 'pk_test_M2e5YbVJN53ZL7CWp1KdgNAC',
+      // key: 'pk_test_2EGWoFJPE26IJfFuipiFEV1M',
       locale: 'auto',
       token: (token: any) => {
         this.stripeService.payByCard(token.id, this.projectId, this.pledgedAmount, this.rewardId);

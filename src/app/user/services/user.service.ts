@@ -54,6 +54,19 @@ export class UserService {
     return false;
   }
 
+  hasConnectedAccount(user){
+    return this.http.get(
+      `/api/v1/users/${user.id}`
+    ).do((res) => {
+      if (res.json().stripe_user_id != "") {
+        return true;
+      }
+      else {
+        return false;
+      }
+    });    
+  }
+
   readNotification(id: number) {
     return this.http.put(
       `/api/v1/notifications/read_notification`, { id: id}
